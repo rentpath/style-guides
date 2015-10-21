@@ -26,3 +26,7 @@ A collection of style guides used at RentPath.
 - mappings
   - `nmap <Leader>r :echo @%\|RuboCop -a <CR>` " autofix current file
   - use `<Leader>ru` to lint the current file
+
+## Sublime
+
+[Setup Sublime](https://github.com/rentpath/style-guides/wiki/Setup-Sublime-Linter)
