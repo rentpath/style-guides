@@ -80,6 +80,24 @@ Style/EmptyLinesAroundModuleBody:
   Description: 'Disallow empty lines around module body.'
   Enabled: false
 
+Style/AccessorMethodName:
+  Description: 'Check the naming of accessor methods for get_/set_.'
+  Enabled: false
+
+Style/ClassCheck:
+  Description: 'Enforces consistent use of `Object#is_a?` or `Object#kind_of?`.'
+  Enabled: false
+
+Style/ClassVars:
+  Description: 'Avoid the use of class variables.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-class-vars'
+  Enabled: false
+
+Style/GuardClause:
+  Description: 'Check for conditionals that can be replaced with guard clauses'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals'
+  Enabled: false
+
 # I think this cop prevents shadowing in constuctors. Our style guide allows
 # for shadowing when both the method and local variables are equivalent. This
 # happens in constructors.
