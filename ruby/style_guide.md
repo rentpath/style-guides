@@ -1741,19 +1741,125 @@ this rule only to arrays with two or more elements.
     ```
 * Use `fetch` with second argument to use a default value
 
-   ```Ruby
-   batman = { name: 'Bruce Wayne', is_evil: false }
+    ```Ruby
+    batman = { name: 'Bruce Wayne', is_evil: false }
 
-   # bad - if we just use || operator with falsy value we won't get the expected result
-   batman[:is_evil] || true # => true
+    # bad - if we just use || operator with falsy value we won't get the expected result
+    batman[:is_evil] || true # => true
 
-   # good - fetch work correctly with falsy values
-   batman.fetch(:is_evil, true) # => false
-   ```
+    # good - fetch work correctly with falsy values
+    batman.fetch(:is_evil, true) # => false
+    ```
 
 * Rely on the fact that as of Ruby 1.9 hashes are ordered.
 
 * Never modify a collection while traversing it.
+
+* Use `count` instead of `select...size`, `reject...size`,
+  `select...count`, `reject...count`, `select...length`,
+  and `reject...length`.
+
+    ```Ruby
+    # bad
+    [1, 2, 3].select { |e| e > 2 }.size
+    [1, 2, 3].reject { |e| e > 2 }.size
+    [1, 2, 3].select { |e| e > 2 }.length
+    [1, 2, 3].reject { |e| e > 2 }.length
+    [1, 2, 3].select { |e| e > 2 }.count { |e| e.odd? }
+    [1, 2, 3].reject { |e| e > 2 }.count { |e| e.even? }
+    array.select(&:value).count
+
+    # good
+    [1, 2, 3].count { |e| e > 2 }
+    [1, 2, 3].count { |e| e < 2 }
+    [1, 2, 3].count { |e| e > 2 && e.odd? }
+    [1, 2, 3].count { |e| e < 2 && e.even? }
+    Model.select('field AS field_one').count
+    Model.select(:value).count
+    ```
+
+* Use `detect` instead of `select.first`, `select.last`,
+  `find_all.first`, or `find_all.last`.
+
+    ```Ruby
+    # bad
+    [].select { |item| true }.first
+    [].select { |item| true }.last
+    [].find_all { |item| true }.first
+    [].find_all { |item| true }.last
+
+    # good
+    [].detect { |item| true }
+    [].reverse.detect { |item| true }
+    ```
+
+* Use `Enumerable#flat_map`
+  instead of `Enumerable#map...Array#flatten(1)`
+  or `Enumberable#collect..Array#flatten(1)`
+
+    ```Ruby
+    # bad
+    [1, 2, 3, 4].map { |e| [e, e] }.flatten(1)
+    [1, 2, 3, 4].collect { |e| [e, e] }.flatten(1)
+
+    # good
+    [1, 2, 3, 4].flat_map { |e| [e, e] }
+    [1, 2, 3, 4].map { |e| [e, e] }.flatten
+    [1, 2, 3, 4].collect { |e| [e, e] }.flatten
+    ```
+
+* Use `reverse_each` instead of `reverse.each`.
+
+    ```Ruby
+    # bad
+    [].reverse.each
+
+    # good
+    [].reverse_each
+    ```
+
+* Use `sample` instead of `shuffle.first`,
+  `shuffle.last`, and `shuffle[Fixnum]`.
+
+    ```Ruby
+    # bad
+    [1, 2, 3].shuffle.first
+    [1, 2, 3].shuffle.first(2)
+    [1, 2, 3].shuffle.last
+    [1, 2, 3].shuffle[2]
+    [1, 2, 3].shuffle[0, 2]    # sample(2) will do the same
+    [1, 2, 3].shuffle[0..2]    # sample(3) will do the same
+    [1, 2, 3].shuffle(random: Random.new).first
+
+    # good
+    [1, 2, 3].shuffle
+    [1, 2, 3].sample
+    [1, 2, 3].sample(3)
+    [1, 2, 3].shuffle[1, 3]    # sample(3) might return a longer Array
+    [1, 2, 3].shuffle[1..3]    # sample(3) might return a longer Array
+    [1, 2, 3].shuffle[foo, bar]
+    [1, 2, 3].shuffle(random: Random.new)
+    ```
+
+* Use `size` instead of `count` for counting
+  the number of elements in `Array` and `Hash`.
+
+    ```Ruby
+    # bad
+    [1, 2, 3].count
+
+    # bad
+    {a: 1, b: 2, c: 3}.count
+
+    # good
+    [1, 2, 3].size
+
+    # good
+    {a: 1, b: 2, c: 3}.size
+
+    # good
+    [1, 2, 3].count { |e| e > 2 }
+    ```
 
 ## Strings
 
