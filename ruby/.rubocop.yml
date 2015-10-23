@@ -217,11 +217,6 @@ Performance/FixedSize:
   Description: 'Do not compute the size of statically sized objects except in constants'
   Enabled: false
 
-Performance/ReverseEach:
-  Description: 'Use `reverse_each` instead of `reverse.each`.'
-  Reference: 'https://github.com/JuanitoFatas/fast-ruby#enumerablereverseeach-vs-enumerablereverse_each-code'
-  Enabled: false
-
 # #tr and #gsub work differently, even when the number of characters is the same.
 # Keep this disabled.
 Performance/StringReplacement:

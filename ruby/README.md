@@ -1828,6 +1828,16 @@ this rule only to arrays with two or more elements.
     [1, 2, 3].count { |e| e > 2 }
     ```
 
+* Use `reverse_each` instead of `reverse.each`.
+
+    ```Ruby
+    # bad
+    [].reverse.each
+
+    # good
+    [].reverse_each
+    ```
+
 ## Strings
 
 * Prefer string interpolation instead of string concatenation:
