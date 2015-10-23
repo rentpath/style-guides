@@ -1770,6 +1770,29 @@ this rule only to arrays with two or more elements.
     [1, 2, 3, 4].collect { |e| [e, e] }.flatten
     ```
 
+* Use `sample` instead of `shuffle.first`,
+  `shuffle.last`, and `shuffle[Fixnum]`.
+
+    ```Ruby
+    # bad
+    [1, 2, 3].shuffle.first
+    [1, 2, 3].shuffle.first(2)
+    [1, 2, 3].shuffle.last
+    [1, 2, 3].shuffle[2]
+    [1, 2, 3].shuffle[0, 2]    # sample(2) will do the same
+    [1, 2, 3].shuffle[0..2]    # sample(3) will do the same
+    [1, 2, 3].shuffle(random: Random.new).first
+
+    # good
+    [1, 2, 3].shuffle
+    [1, 2, 3].sample
+    [1, 2, 3].sample(3)
+    [1, 2, 3].shuffle[1, 3]    # sample(3) might return a longer Array
+    [1, 2, 3].shuffle[1..3]    # sample(3) might return a longer Array
+    [1, 2, 3].shuffle[foo, bar]
+    [1, 2, 3].shuffle(random: Random.new)
+    ```
+
 ## Strings
 
 * Prefer string interpolation instead of string concatenation:
