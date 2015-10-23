@@ -1793,6 +1793,21 @@ this rule only to arrays with two or more elements.
     [1, 2, 3].shuffle(random: Random.new)
     ```
 
+* Use `detect` instead of `select.first`, `select.last`,
+  `find_all.first`, or `find_all.last`.
+
+    ```Ruby
+    # bad
+    [].select { |item| true }.first
+    [].select { |item| true }.last
+    [].find_all { |item| true }.first
+    [].find_all { |item| true }.last
+
+    # good
+    [].detect { |item| true }
+    [].reverse.detect { |item| true }
+    ```
+
 ## Strings
 
 * Prefer string interpolation instead of string concatenation:
