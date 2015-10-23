@@ -1741,15 +1741,15 @@ this rule only to arrays with two or more elements.
     ```
 * Use `fetch` with second argument to use a default value
 
-   ```Ruby
-   batman = { name: 'Bruce Wayne', is_evil: false }
+    ```Ruby
+    batman = { name: 'Bruce Wayne', is_evil: false }
 
-   # bad - if we just use || operator with falsy value we won't get the expected result
-   batman[:is_evil] || true # => true
+    # bad - if we just use || operator with falsy value we won't get the expected result
+    batman[:is_evil] || true # => true
 
-   # good - fetch work correctly with falsy values
-   batman.fetch(:is_evil, true) # => false
-   ```
+    # good - fetch work correctly with falsy values
+    batman.fetch(:is_evil, true) # => false
+    ```
 
 * Rely on the fact that as of Ruby 1.9 hashes are ordered.
 
