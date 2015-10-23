@@ -206,13 +206,6 @@ Performance/CaseWhenSplat:
                   of the list of `when` branches.
   Enabled: false
 
-Performance/Count:
-  Description: >-
-                  Use `count` instead of `select...size`, `reject...size`,
-                  `select...count`, `reject...count`, `select...length`,
-                  and `reject...length`.
-  Enabled: false
-
 Performance/FixedSize:
   Description: 'Do not compute the size of statically sized objects except in constants'
   Enabled: false

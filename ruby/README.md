@@ -1838,6 +1838,29 @@ this rule only to arrays with two or more elements.
     [].reverse_each
     ```
 
+* Use `count` instead of `select...size`, `reject...size`,
+  `select...count`, `reject...count`, `select...length`,
+  and `reject...length`.
+
+    ```Ruby
+    # bad
+    [1, 2, 3].select { |e| e > 2 }.size
+    [1, 2, 3].reject { |e| e > 2 }.size
+    [1, 2, 3].select { |e| e > 2 }.length
+    [1, 2, 3].reject { |e| e > 2 }.length
+    [1, 2, 3].select { |e| e > 2 }.count { |e| e.odd? }
+    [1, 2, 3].reject { |e| e > 2 }.count { |e| e.even? }
+    array.select(&:value).count
+
+    # good
+    [1, 2, 3].count { |e| e > 2 }
+    [1, 2, 3].count { |e| e < 2 }
+    [1, 2, 3].count { |e| e > 2 && e.odd? }
+    [1, 2, 3].count { |e| e < 2 && e.even? }
+    Model.select('field AS field_one').count
+    Model.select(:value).count
+    ```
+
 ## Strings
 
 * Prefer string interpolation instead of string concatenation:
