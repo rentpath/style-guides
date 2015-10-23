@@ -1755,6 +1755,21 @@ this rule only to arrays with two or more elements.
 
 * Never modify a collection while traversing it.
 
+* Use `Enumerable#flat_map`
+  instead of `Enumerable#map...Array#flatten(1)`
+  or `Enumberable#collect..Array#flatten(1)`
+
+    ```Ruby
+    # bad
+    [1, 2, 3, 4].map { |e| [e, e] }.flatten(1)
+    [1, 2, 3, 4].collect { |e| [e, e] }.flatten(1)
+
+    # good
+    [1, 2, 3, 4].flat_map { |e| [e, e] }
+    [1, 2, 3, 4].map { |e| [e, e] }.flatten
+    [1, 2, 3, 4].collect { |e| [e, e] }.flatten
+    ```
+
 ## Strings
 
 * Prefer string interpolation instead of string concatenation:
