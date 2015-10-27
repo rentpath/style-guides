@@ -1793,6 +1793,26 @@ this rule only to arrays with two or more elements.
     [1, 2, 3].shuffle(random: Random.new)
     ```
 
+* Use `size` instead of `count` for counting
+  the number of elements in `Array` and `Hash`.
+
+    ```Ruby
+    # bad
+    [1, 2, 3].count
+
+    # bad
+    {a: 1, b: 2, c: 3}.count
+
+    # good
+    [1, 2, 3].size
+
+    # good
+    {a: 1, b: 2, c: 3}.size
+
+    # good
+    [1, 2, 3].count { |e| e > 2 }
+    ```
+
 ## Strings
 
 * Prefer string interpolation instead of string concatenation:
