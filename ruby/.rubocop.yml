@@ -222,13 +222,6 @@ Performance/ReverseEach:
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#enumerablereverseeach-vs-enumerablereverse_each-code'
   Enabled: false
 
-Performance/Size:
-  Description: >-
-                  Use `size` instead of `count` for counting
-                  the number of elements in `Array` and `Hash`.
-  Reference: 'https://github.com/JuanitoFatas/fast-ruby#arraycount-vs-arraysize-code'
-  Enabled: false
-
 # #tr and #gsub work differently, even when the number of characters is the same.
 # Keep this disabled.
 Performance/StringReplacement:
