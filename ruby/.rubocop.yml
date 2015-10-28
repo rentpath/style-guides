@@ -213,13 +213,6 @@ Performance/Count:
                   and `reject...length`.
   Enabled: false
 
-Performance/Detect:
-  Description: >-
-                  Use `detect` instead of `select.first`, `find_all.first`,
-                  `select.last`, and `find_all.last`.
-  Reference: 'https://github.com/JuanitoFatas/fast-ruby#enumerabledetect-vs-enumerableselectfirst-code'
-  Enabled: false
-
 Performance/FixedSize:
   Description: 'Do not compute the size of statically sized objects except in constants'
   Enabled: false
