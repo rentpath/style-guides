@@ -29,7 +29,7 @@ Based on the [fantastic work](https://github.com/bbatsov/ruby-style-guide) by [B
 * Use `UTF-8` as the source file encoding.
 * Use YARD and its conventions for API documentation.  Don't put an
   empty line between the comment block and the `def`.
-* Limit lines to 100 characters.
+* Limit lines to 120 characters.
 * No trailing whitespace.
 * Use two **spaces** per indentation level. No hard tabs.
 
