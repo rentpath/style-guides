@@ -114,7 +114,7 @@ Metrics/LineLength:
   Description: 'Limit lines to a set number of characters.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#80-character-limits'
   Enabled: true
-  Max: 100
+  Max: 120
 
 Metrics/ParameterLists:
   Description: 'Avoid parameter lists longer than three or four parameters.'
