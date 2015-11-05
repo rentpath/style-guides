@@ -7,6 +7,6 @@ A collection of style guides used at RentPath.
 
 - [Vim](https://github.com/rentpath/style-guides/wiki/Vim-Linter)
 
-- [Sublime](https://github.com/rentpath/style-guides/wiki/Setup-Sublime-Linter)
+- [Sublime](https://github.com/rentpath/style-guides/wiki/Sublime-Linter)
 
 ![x](http://i.imgur.com/X60PlOu.png)
