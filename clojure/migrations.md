@@ -1,7 +1,7 @@
 #Database Migrations
 
 ## migration name:
- - Does not clash with previous migrations (numbers must incriment).
+ - Does not clash with previous migrations (numbers must increment).
  - Describes whether it is adding a new object or altering an old one.
  - identifies which object is affected.
 
