@@ -117,10 +117,11 @@ Metrics/LineLength:
   Max: 120
 
 Metrics/ParameterLists:
-  Description: 'Avoid parameter lists longer than three or four parameters.'
+  Description: 'Avoid parameter lists longer than five parameters.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#too-many-params'
   Enabled: true
-  Max: 4
+  Max: 5
+  CountKeywordArgs: false
 
 Metrics/AbcSize:
   Description: >-
