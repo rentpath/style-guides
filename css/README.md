@@ -438,24 +438,24 @@ Why Modular CSS? See [Understanding Modular CSS](https://speakerdeck.com/jlong/u
 
 ##### Before: Depends on HTML structure and nesting.
 
-    ```html
-    <nav>
-      <a href="/">Link A</a>
-      <a href="/">Link B</a>
-      <a href="/">Link C</a>
-    </nav>
-    ```
+```html
+<nav>
+  <a href="/">Link A</a>
+  <a href="/">Link B</a>
+  <a href="/">Link C</a>
+</nav>
+```
 
-    ```scss
-    nav {
-      background: #000;
-      text-align: left;
+```scss
+nav {
+  background: #000;
+  text-align: left;
 
-      a {
-        display: inline-block;
-      }
-    }
-    ```
+  a {
+    display: inline-block;
+  }
+}
+```
 
 ##### After: No dependency on structure. Flat.
 
