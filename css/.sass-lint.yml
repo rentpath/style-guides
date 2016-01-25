@@ -1,0 +1,74 @@
+#########################
+## Sample Sass Lint File
+#########################
+# Linter Options
+options:
+  # Don't merge default rules
+  merge-default-rules: false
+  formatter: stylish 
+
+# File Options
+files:
+  include: './src/**/*.scss'
+  ignore:
+    - 'docker/'
+
+# Rule Configuration
+rules:
+  extends-before-mixins: 2
+  extends-before-declarations: 2
+  placeholder-in-extend: 2
+  brace-style: 
+    - 2
+    - 
+      style: '1tbs'
+    -
+      allow-single-line:
+        - false
+  space-before-brace: 
+    - 2
+    - true
+  space-after-colon: 
+    - 2
+    - true
+  single-line-per-selector: 
+    - 2
+    - true
+  mixins-before-declarations:
+    - 2
+    -
+      exclude:
+        - breakpoint
+        - mq
+  empty-line-between-blocks:
+    - 2
+    -
+      include:
+        - true
+  shorthand-values: 2
+  zero-unit: 2
+  nesting-depth:
+    - 1 
+    - 
+      max-depth: 
+        - 2
+  no-warn: 1
+  no-debug: 1
+  no-ids: 2
+  no-important: 2
+  hex-notation:
+    - 2
+    -
+      style: uppercase
+  indentation:
+    - 2
+    -
+      size: 2
+
+  property-sort-order:
+    - 1
+    -
+      order:
+        - display
+        - margin
+      ignore-custom-properties: true
