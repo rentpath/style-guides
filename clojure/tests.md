@@ -12,11 +12,11 @@ Where possible, generative tests can provide better coverage. When schemas are u
 
 - Unit tests should test the inputs and the outputs of the functions they are testing.  
 
-- When the job of the function is to call another function, the called function should be redefed and the test should verify that it is calling it correctly.
+- When the job of the function is to call another function, an integration test is probably warranted.
 
 
 ## Integration Tests
 
-- HTTP handlers can be tested with `ring.mock.request`
+- Integration tests are best made against a running system.  If testing http handlers, start the system and issue http requests against it.  
 - When possible, tests of database functionality to should be executed against live local databases running inside of containers.
 - If a local database is not available, mock the database.
