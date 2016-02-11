@@ -8,6 +8,7 @@ Currently all styles are text only. In the future, perhaps they will be enforced
 
 ## Specific guides 
 - [Database Migrations](migrations.md)
+- [Writing Tests](tests.md)
 - [Libraries used](libraries.md)
 - [Libraries being considered](tech-radar.md)
 
