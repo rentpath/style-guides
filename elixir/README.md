@@ -6,4 +6,4 @@
  RentPath uses [René Föhring's](https://github.com/rrrene) Elixir Style Guide, which can be found [here](https://github.com/rrrene/elixir-style-guide).
 
 # Code Analysis
- RentPath uses [Credo](https://github.com/rrrene/credo) for code anaylis. See `.credo.exs` for an example `Credo` config file.
+ RentPath uses [Credo](https://github.com/rrrene/credo) for code analysis. See `.credo.exs` for an example `Credo` config file.
