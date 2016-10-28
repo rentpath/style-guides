@@ -222,3 +222,8 @@ Performance/StringReplacement:
                   you are deleting characters.
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#stringgsub-vs-stringtr-code'
   Enabled: false
+
+# Long blocks are already caught by the method length cop, this only causes an
+# offense for configuration blocks where its fine for the block to be very long
+Metrics/BlockLength:
+  Enabled: false
