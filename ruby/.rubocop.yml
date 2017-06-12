@@ -1,6 +1,27 @@
 AllCops:
   TargetRubyVersion: 2.2
 
+##################### Layout #############################
+
+Layout/SpaceInsideHashLiteralBraces:
+  Description: "Use spaces inside hash literal braces - or don't."
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#spaces-operators'
+  Enabled: false
+
+Layout/EmptyLines:
+  Description: "Don't use several empty lines in a row."
+  Enabled: false
+
+Layout/EmptyLinesAroundClassBody:
+  Description: 'Disallow empty lines around class body.'
+  Enabled: false
+
+Layout/EmptyLinesAroundModuleBody:
+  Description: 'Disallow empty lines around module body.'
+  Enabled: false
+
+##################### Style #############################
+
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     default: ()
@@ -16,17 +37,8 @@ Style/Encoding:
   EnforcedStyle: when_needed
   Enabled: true
 
-Style/SpaceInsideHashLiteralBraces:
-  Description: "Use spaces inside hash literal braces - or don't."
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#spaces-operators'
-  Enabled: false
-
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
-  Enabled: false
-
-Style/EmptyLines:
-  Description: "Don't use several empty lines in a row."
   Enabled: false
 
 # While our style guide says to do this, RuboCop would flag zip codes in specs
@@ -83,14 +95,6 @@ Style/LineEndConcatenation:
   Description: >-
                  Use \ instead of + or << to concatenate two string literals at
                  line end.
-  Enabled: false
-
-Style/EmptyLinesAroundClassBody:
-  Description: 'Disallow empty lines around class body.'
-  Enabled: false
-
-Style/EmptyLinesAroundModuleBody:
-  Description: 'Disallow empty lines around module body.'
   Enabled: false
 
 Style/AccessorMethodName:
