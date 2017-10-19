@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.4
 
 ##################### Layout #############################
 
@@ -20,7 +20,28 @@ Layout/EmptyLinesAroundModuleBody:
   Description: 'Disallow empty lines around module body.'
   Enabled: false
 
+
+#################### Naming ##############################
+
+Naming/AccessorMethodName:
+  Description: Check the naming of accessor methods for get_/set_.
+  StyleGuide: '#accessor_mutator_method_names'
+  Enabled: false
+
 ##################### Style #############################
+
+Style/SafeNavigation:
+  Description: >-
+                  This cop transforms usages of a method call safeguarded by
+                  a check for the existance of the object to
+                  safe navigation (`&.`).
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Description: >-
+                 Add the frozen_string_literal comment to the top of files
+                 to help transition from Ruby 2.3.0 to Ruby 3.0.
+  Enabled: false
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
@@ -34,7 +55,6 @@ Style/PercentLiteralDelimiters:
 Style/Encoding:
   Description: 'Use UTF-8 as the source file encoding.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#utf-8'
-  EnforcedStyle: when_needed
   Enabled: true
 
 Style/Documentation:
@@ -95,10 +115,6 @@ Style/LineEndConcatenation:
   Description: >-
                  Use \ instead of + or << to concatenate two string literals at
                  line end.
-  Enabled: false
-
-Style/AccessorMethodName:
-  Description: 'Check the naming of accessor methods for get_/set_.'
   Enabled: false
 
 Style/ClassCheck:
