@@ -143,6 +143,12 @@ Metrics/LineLength:
   Enabled: true
   Max: 120
 
+Metrics/MethodLength:
+  Description: 'Limit methods to 12 lines.'
+  StyleGuide: 'https://github.com/rubocop-hq/ruby-style-guide#short-methods'
+  Enabled: true
+  Max: 12
+
 Metrics/ParameterLists:
   Description: 'Avoid parameter lists longer than three or four parameters.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#too-many-params'
