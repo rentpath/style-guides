@@ -8,21 +8,22 @@
 
 # Style Guide
 
-RentPath uses [René Föhring's](https://github.com/rrrene) Elixir Style Guide,
-which can be found [here](https://github.com/rrrene/elixir-style-guide).
+RentPath uses Christopher Adams's Elixir Style Guide,
+which can be found [here](https://github.com/christopheradams/elixir_style_guide).
 
 # Code Analysis
 
 RentPath uses [Credo](https://github.com/rrrene/credo) for code analysis. See
-`.credo.exs` for an example `Credo` config file.
+[`.credo.exs`](.credo.exs) for an example `Credo` config file.
 
 # Elixir Installation and Version Management
 
 A popular, though not required, option for installing and managing multiple
-versions of Elixir is to use [exenv][1] and [elixir-build][2].
+versions of Elixir is to use [exenv][1] and [elixir-build][2]. Other options
+are [kiex][3] and [asdf-elixir][4].
 
-Follow the installation instructions for those two applications. Then install
-the elixir version in use for the application available in the
+Follow the installation instructions for those two first applications. Then
+install the elixir version in use for the application available in the
 `.exenv-version` file at the root of the project:
 
     $ exenv install <a.b.c>
@@ -46,3 +47,5 @@ version based on the `.exenv-version` file in the project you are working on.
 
 [1]:https://github.com/mururu/exenv
 [2]:https://github.com/mururu/elixir-build
+[3]:https://github.com/taylor/kiex
+[4]:https://github.com/asdf-vm/asdf-elixir

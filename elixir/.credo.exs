@@ -19,8 +19,8 @@
         #
         # you can give explicit globs or simply directories
         # in the latter case `**/*.{ex,exs}` will be used
-        included: ["lib/", "src/", "web/", "apps/"],
-        excluded: [~r"/_build/", ~r"/deps/"]
+        included: ["lib/", "src/", "test/", "web/", "apps/"],
+        excluded: [~r"/_build/", ~r"/deps/", ~r"/node_modules/"]
       },
       #
       # If you create your own checks, you must specify the source files for
@@ -30,6 +30,14 @@
       # Credo automatically checks for updates, like e.g. Hex does.
       # You can disable this behaviour below:
       check_for_updates: true,
+      #
+      # If you want to enforce a style guide and need a more traditional linting
+      # experience, you can change `strict` to `true` below:
+      strict: true,
+      #
+      # If you want to use uncolored output by default, you can change `color`
+      # to `false` below:
+      color: true,
       #
       # You can customize the parameters of any check by adding a second element
       # to the tuple.
@@ -41,6 +49,8 @@
       checks: [
         {Credo.Check.Consistency.ExceptionNames},
         {Credo.Check.Consistency.LineEndings},
+        {Credo.Check.Consistency.MultiAliasImportRequireUse},
+        {Credo.Check.Consistency.ParameterPatternMatching},
         {Credo.Check.Consistency.SpaceAroundOperators},
         {Credo.Check.Consistency.SpaceInParentheses},
         {Credo.Check.Consistency.TabsOrSpaces},
@@ -54,7 +64,7 @@
         # If you don't want the `setup` and `test` macro calls in ExUnit tests
         # or the `schema` macro in Ecto schemas to trigger DuplicatedCode, just
         # set the `excluded_macros` parameter to `[:schema, :setup, :test]`.
-        {Credo.Check.Design.DuplicatedCode, excluded_macros: []},
+        {Credo.Check.Design.DuplicatedCode, excluded_macros: [], exit_status: 0},
 
         # You can also customize the exit_status of each check.
         # If you don't want TODO comments to cause `mix credo` to fail, just
@@ -62,43 +72,64 @@
         {Credo.Check.Design.TagTODO, exit_status: 2},
         {Credo.Check.Design.TagFIXME},
 
+        {Credo.Check.Readability.AliasOrder},
         {Credo.Check.Readability.FunctionNames},
         {Credo.Check.Readability.LargeNumbers},
-        {Credo.Check.Readability.MaxLineLength, false},
+        {Credo.Check.Readability.MaxLineLength, max_length: 120},
         {Credo.Check.Readability.ModuleAttributeNames},
         {Credo.Check.Readability.ModuleDoc},
         {Credo.Check.Readability.ModuleNames},
+        {Credo.Check.Readability.ParenthesesInCondition, false},
+        {Credo.Check.Readability.ParenthesesOnZeroArityDefs},
         {Credo.Check.Readability.PredicateFunctionNames},
+        {Credo.Check.Readability.PreferImplicitTry, exit_status: 0},
+        # {Credo.Check.Readability.PreferUnquotedAtoms}, # There is a bug in this Credo check in right now.
+        {Credo.Check.Readability.RedundantBlankLines},
+        {Credo.Check.Readability.Semicolons},
+        {Credo.Check.Readability.SinglePipe},
+        {Credo.Check.Readability.SpaceAfterCommas},
+        {Credo.Check.Readability.Specs},
+        {Credo.Check.Readability.StringSigils, false},
         {Credo.Check.Readability.TrailingBlankLine},
         {Credo.Check.Readability.TrailingWhiteSpace},
         {Credo.Check.Readability.VariableNames},
 
         {Credo.Check.Refactor.ABCSize},
-        # {Credo.Check.Refactor.CaseTrivialMatches}, # deprecated in 0.4.0
-        {Credo.Check.Refactor.CondStatements},
-        {Credo.Check.Refactor.FunctionArity},
-        {Credo.Check.Refactor.MatchInCondition},
-        {Credo.Check.Refactor.PipeChainStart, false},
+        {Credo.Check.Refactor.AppendSingleItem, exit_status: 0},
+        {Credo.Check.Refactor.CaseTrivialMatches, false},
+        {Credo.Check.Refactor.CondStatements, false},
         {Credo.Check.Refactor.CyclomaticComplexity},
+        {Credo.Check.Refactor.DoubleBooleanNegation},
+        {Credo.Check.Refactor.FunctionArity, max_arity: 6},
+        {Credo.Check.Refactor.LongQuoteBlocks, false},
+        {Credo.Check.Refactor.MapInto},
+        {Credo.Check.Refactor.MatchInCondition},
         {Credo.Check.Refactor.NegatedConditionsInUnless},
         {Credo.Check.Refactor.NegatedConditionsWithElse},
         {Credo.Check.Refactor.Nesting},
+        {Credo.Check.Refactor.PerceivedComplexity, false},
+        {Credo.Check.Refactor.PipeChainStart,
+         excluded_argument_types: [:atom, :binary, :fn, :keyword], excluded_functions: []},
+        {Credo.Check.Refactor.VariableRebinding},
         {Credo.Check.Refactor.UnlessWithElse},
 
+        {Credo.Check.Warning.BoolOperationOnSameValues},
+        {Credo.Check.Warning.ExpensiveEmptyEnumCheck},
         {Credo.Check.Warning.IExPry},
         {Credo.Check.Warning.IoInspect},
-        {Credo.Check.Warning.NameRedeclarationByAssignment},
-        {Credo.Check.Warning.NameRedeclarationByCase},
-        {Credo.Check.Warning.NameRedeclarationByDef},
-        {Credo.Check.Warning.NameRedeclarationByFn},
+        {Credo.Check.Warning.LazyLogging, false},
+        {Credo.Check.Warning.MapGetUnsafePass},
         {Credo.Check.Warning.OperationOnSameValues},
-        {Credo.Check.Warning.BoolOperationOnSameValues},
+        {Credo.Check.Warning.OperationWithConstantResult},
+        {Credo.Check.Warning.RaiseInsideRescue},
         {Credo.Check.Warning.UnusedEnumOperation},
+        {Credo.Check.Warning.UnusedFileOperation},
         {Credo.Check.Warning.UnusedKeywordOperation},
         {Credo.Check.Warning.UnusedListOperation},
+        {Credo.Check.Warning.UnusedPathOperation},
+        {Credo.Check.Warning.UnusedRegexOperation},
         {Credo.Check.Warning.UnusedStringOperation},
         {Credo.Check.Warning.UnusedTupleOperation},
-        {Credo.Check.Warning.OperationWithConstantResult},
 
         # Custom checks can be created using `mix credo.gen.check`.
         #
