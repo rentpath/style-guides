@@ -96,11 +96,6 @@ Style/DoubleNegation:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-bang-bang'
   Enabled: false
 
-Style/GuardClause:
-  Description: 'Check for conditionals that can be replaced with guard clauses'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals'
-  Enabled: false
-
 Style/InfiniteLoop:
   Description: 'Use Kernel#loop for infinite loops.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#infinite-loop'
