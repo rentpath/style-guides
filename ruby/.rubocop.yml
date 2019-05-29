@@ -223,3 +223,27 @@ Lint/UnusedMethodArgument:
 # offense for configuration blocks where its fine for the block to be very long
 Metrics/BlockLength:
   Enabled: false
+
+################## Performance #############################
+
+require: rubocop-performance
+
+Performance/CaseWhenSplat:
+  Description: >-
+                  Place `when` conditions that use splat at the end
+                  of the list of `when` branches.
+  Enabled: false
+
+Performance/FixedSize:
+  Description: 'Do not compute the size of statically sized objects except in constants'
+  Enabled: false
+
+# #tr and #gsub work differently, even when the number of characters is the same.
+# Keep this disabled.
+Performance/StringReplacement:
+  Description: >-
+                  Use `tr` instead of `gsub` when you are replacing the same
+                  number of characters. Use `delete` instead of `gsub` when
+                  you are deleting characters.
+  Reference: 'https://github.com/JuanitoFatas/fast-ruby#stringgsub-vs-stringtr-code'
+  Enabled: false
