@@ -102,7 +102,7 @@
         {Credo.Check.Refactor.DoubleBooleanNegation},
         {Credo.Check.Refactor.FunctionArity, max_arity: 6},
         {Credo.Check.Refactor.LongQuoteBlocks, false},
-        {Credo.Check.Refactor.MapInto},
+        {Credo.Check.Refactor.MapInto, false},
         {Credo.Check.Refactor.MatchInCondition},
         {Credo.Check.Refactor.NegatedConditionsInUnless},
         {Credo.Check.Refactor.NegatedConditionsWithElse},
