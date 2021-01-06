@@ -1,7 +1,31 @@
 AllCops:
-  TargetRubyVersion: 2.6
+  NewCops: enable
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 2.7
+  SuggestExtensions: false
 
 ##################### Layout #############################
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+  ExpectedOrder:
+      - module_inclusion
+      - constants
+      - public_class_methods
+      - initializer
+      - instance_methods
+      - protected_methods
+      - private_methods
 
 Layout/EmptyLines:
   Description: "Don't use several empty lines in a row."
@@ -19,6 +43,8 @@ Layout/LineLength:
   Description: 'Limit lines to a set number of characters.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#80-character-limits'
   Enabled: true
+  IgnoredPatterns:
+    - !ruby/regexp /\A +(it|describe|context|shared_examples|include_examples|it_behaves_like) ["']/
   Max: 120
 
 Layout/SpaceInsideHashLiteralBraces:
@@ -31,7 +57,7 @@ Layout/SpaceInsideHashLiteralBraces:
 Naming/AccessorMethodName:
   Description: Check the naming of accessor methods for get_/set_.
   StyleGuide: '#accessor_mutator_method_names'
-  Enabled: false
+  Enabled: true
 
 ##################### Style #############################
 
@@ -40,7 +66,7 @@ Style/SafeNavigation:
                   This cop transforms usages of a method call safeguarded by
                   a check for the existance of the object to
                   safe navigation (`&.`).
-  Enabled: false
+  Enabled: true
 
 Style/FrozenStringLiteralComment:
   Description: >-
@@ -137,6 +163,11 @@ Style/ParallelAssignment:
 
 #################### Metrics ################################
 
+# Long blocks are already caught by the method length cop, this only causes an
+# offense for configuration blocks where its fine for the block to be very long
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/ParameterLists:
   Description: 'Avoid parameter lists longer than three or four parameters.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#too-many-params'
@@ -216,11 +247,6 @@ Lint/UnusedBlockArgument:
 Lint/UnusedMethodArgument:
   Description: 'Checks for unused method arguments.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars'
-  Enabled: false
-
-# Long blocks are already caught by the method length cop, this only causes an
-# offense for configuration blocks where its fine for the block to be very long
-Metrics/BlockLength:
   Enabled: false
 
 ################## Performance #############################
