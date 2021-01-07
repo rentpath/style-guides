@@ -1,0 +1,18 @@
+name: Lint
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+jobs:
+  commits:
+    name: Validate commit
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: rentpath/commitlint-github-action@v2
+        with:
+          failOnWarnings: true
