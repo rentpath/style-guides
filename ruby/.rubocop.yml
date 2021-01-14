@@ -29,15 +29,15 @@ Layout/ClassStructure:
 
 Layout/EmptyLines:
   Description: "Don't use several empty lines in a row."
-  Enabled: false
+  Enabled: true
 
 Layout/EmptyLinesAroundClassBody:
   Description: 'Disallow empty lines around class body.'
-  Enabled: false
+  Enabled: true
 
 Layout/EmptyLinesAroundModuleBody:
   Description: 'Disallow empty lines around module body.'
-  Enabled: false
+  Enabled: true
 
 Layout/LineLength:
   Description: 'Limit lines to a set number of characters.'
