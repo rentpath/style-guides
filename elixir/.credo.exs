@@ -79,6 +79,8 @@
         {Credo.Check.Readability.ModuleAttributeNames},
         {Credo.Check.Readability.ModuleDoc},
         {Credo.Check.Readability.ModuleNames},
+        {Credo.Check.Readability.StrictModuleLayout,
+          order: ~w/shortdoc moduledoc behaviour use import require alias module_attribute defstruct type typep callback macrocallback optional_callbacks/a},
         {Credo.Check.Readability.ParenthesesInCondition, false},
         {Credo.Check.Readability.ParenthesesOnZeroArityDefs},
         {Credo.Check.Readability.PredicateFunctionNames},
