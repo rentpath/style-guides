@@ -16,3 +16,4 @@ jobs:
       - uses: wagoid/commitlint-github-action@v2
         with:
           failOnWarnings: true
+
