@@ -13,6 +13,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: rentpath/commitlint-github-action@v2
+      - uses: wagoid/commitlint-github-action@v2
         with:
           failOnWarnings: true
