@@ -9,13 +9,16 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v3
+
       - name: Create release
         id: semantic
-        uses: rentpath/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3
         with:
           semantic_version: 17.1.1
+          branches: |
+            [
+              'master'
+            ]
         env:
           GITHUB_TOKEN: ${{ github.token }}
