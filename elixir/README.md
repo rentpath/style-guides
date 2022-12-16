@@ -18,34 +18,42 @@ RentPath uses [Credo](https://github.com/rrrene/credo) for code analysis. See
 
 # Elixir Installation and Version Management
 
-A popular, though not required, option for installing and managing multiple
-versions of Elixir is to use [exenv][1] and [elixir-build][2]. Other options
-are [kiex][3] and [asdf-elixir][4].
+The team has standardized on [asdf-elixir][1] for installing and managing
+multiple versions of Elixir. Each Elixir repository contains an asdf
+`.tool-versions` file in the top level directory that specifies the version to
+be used for Erlang, Elixir and any other languages used by the application.
+Using asdf is not required, but you'll likely need to manually specify the
+Elixir version when using another tool.
 
-Follow the installation instructions for those two first applications. Then
-install the elixir version in use for the application available in the
-`.exenv-version` file at the root of the project:
+Setting up asdf for our Elixir projects involves several steps but is easy to
+do:
 
-    $ exenv install <a.b.c>
+1. Follow the [installation instructions for asdf][2] for your OS.
+1. Follow the [instructions for installing the Erlang plugin][3].
+1. Follow the [instructions for installing the Elixir plugin][4].
 
-After installing the version, tell `exenv` to rehash.
+After completing these steps you'll need to build versions of Erlang and Elixir
+for each Elixir project you work with. The easiest way to do this is:
 
-    $ exenv rehash
+    # Navigate to the project directory
+    $ cd <elixir project cloned from GitHub>
 
-If you are not in a directory that contains a `.exenv-version` file and do not
-have a system elixir installed, `elixir -v` will not report anything. You must
-either set `exenv`s local or global version or create a `.exenv-version` file.
+    # Run the asdf command to install Erlang and Elixir versions specified
+    # in the project's .tool-version file
+    $ asdf install
 
-    $ exenv local a.b.c
-    # OR
-    $ exenv global a.b.c
-    # OR
-    $ echo 'a.b.c' >> ./.exenv-version
+Note that the Erlang build will take some time, but in a few minutes the
+command should finish and you'll have Erlang and Elixir all set up and ready
+to be used. Run `asdf reshim` for good measure after `asdf install`.
 
-Going forward `exenv` will detect and automatically change your `elixir`
-version based on the `.exenv-version` file in the project you are working on.
+If you've already built the correct version of Erlang and Elixir the `asdf
+install` command will print something like the following:
 
-[1]:https://github.com/mururu/exenv
-[2]:https://github.com/mururu/elixir-build
-[3]:https://github.com/taylor/kiex
-[4]:https://github.com/asdf-vm/asdf-elixir
+    $ asdf install
+    elixir 1.12.3-otp-24 is already installed
+    erlang 24.3.4.5 is already installed
+
+[1]:https://github.com/asdf-vm/asdf-elixir
+[2]:https://asdf-vm.com/guide/getting-started.html
+[3]:https://github.com/asdf-vm/asdf-erlang#use
+[4]:https://github.com/asdf-vm/asdf-elixir#install
