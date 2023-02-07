@@ -43,7 +43,7 @@ Layout/LineLength:
   Description: 'Limit lines to a set number of characters.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#80-character-limits'
   Enabled: true
-  IgnoredPatterns:
+  AllowedPatterns:
     - !ruby/regexp /\A +(it|describe|context|shared_examples|include_examples|it_behaves_like) ["']/
   Max: 120
 
