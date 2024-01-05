@@ -71,7 +71,6 @@
         # set this value to 0 (zero).
         {Credo.Check.Design.TagTODO, exit_status: 2},
         {Credo.Check.Design.TagFIXME},
-
         {Credo.Check.Readability.AliasOrder},
         {Credo.Check.Readability.FunctionNames},
         {Credo.Check.Readability.LargeNumbers},
@@ -87,20 +86,20 @@
         {Credo.Check.Readability.ParenthesesOnZeroArityDefs},
         {Credo.Check.Readability.PredicateFunctionNames},
         {Credo.Check.Readability.PreferImplicitTry, exit_status: 0},
-        {Credo.Check.Readability.PreferUnquotedAtoms, false}, # Not compatible with Elixir 1.14
+        {Credo.Check.Readability.PreferUnquotedAtoms},
         {Credo.Check.Readability.RedundantBlankLines},
         {Credo.Check.Readability.Semicolons},
         {Credo.Check.Readability.SinglePipe},
         {Credo.Check.Readability.SpaceAfterCommas},
         {Credo.Check.Readability.Specs},
         {Credo.Check.Readability.StrictModuleLayout,
-          order: ~w/shortdoc moduledoc behaviour use import require alias module_attribute defstruct type typep callback macrocallback optional_callbacks/a},
+         order:
+           ~w/shortdoc moduledoc behaviour use import require alias module_attribute defstruct type typep callback macrocallback optional_callbacks/a},
         {Credo.Check.Readability.StringSigils, false},
         {Credo.Check.Readability.TrailingBlankLine},
         {Credo.Check.Readability.TrailingWhiteSpace},
         {Credo.Check.Readability.VariableNames},
         {Credo.Check.Readability.WithSingleClause},
-
         {Credo.Check.Refactor.ABCSize},
         {Credo.Check.Refactor.AppendSingleItem, exit_status: 0},
         {Credo.Check.Refactor.CaseTrivialMatches, false},
@@ -120,14 +119,13 @@
         {Credo.Check.Refactor.Nesting},
         {Credo.Check.Refactor.PerceivedComplexity, false},
         {Credo.Check.Refactor.PipeChainStart,
-          excluded_argument_types: [:atom, :binary, :fn, :keyword], excluded_functions: []},
+         excluded_argument_types: [:atom, :binary, :fn, :keyword], excluded_functions: []},
         {Credo.Check.Refactor.RedundantWithClauseResult},
         {Credo.Check.Refactor.RejectFilter},
         {Credo.Check.Refactor.RejectReject},
         {Credo.Check.Refactor.VariableRebinding},
         {Credo.Check.Refactor.UnlessWithElse},
         {Credo.Check.Refactor.WithClauses},
-
         {Credo.Check.Warning.ApplicationConfigInModuleAttribute},
         {Credo.Check.Warning.BoolOperationOnSameValues},
         {Credo.Check.Warning.ExpensiveEmptyEnumCheck},
