@@ -86,7 +86,6 @@
         {Credo.Check.Readability.ParenthesesOnZeroArityDefs},
         {Credo.Check.Readability.PredicateFunctionNames},
         {Credo.Check.Readability.PreferImplicitTry, exit_status: 0},
-        {Credo.Check.Readability.PreferUnquotedAtoms},
         {Credo.Check.Readability.RedundantBlankLines},
         {Credo.Check.Readability.Semicolons},
         {Credo.Check.Readability.SinglePipe},
